@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropship Smart App</title>
+    <!-- Підключаємо стилі Tailwind CSS для красивого дизайну -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        /* Ефект скла для Bento-карток */
+        .bento-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+    </style>
+</head>
+<body class="p-4 min-h-screen">
+
+    <!-- Шапка апки -->
+    <header class="mb-6 text-center">
+        <h1 class="text-2xl font-bold tracking-tight bg-gradient-to-r reduction from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            NOVATOR DROPSHIP
+        </h1>
+        <p class="text-xs text-slate-400 mt-1">Панель керування та смарт-пошук</p>
+    </header>
+
+    <!-- СІТКА BENTO GRID -->
+    <div class="grid grid-cols-2 gap-4">
+        
+        <!-- Блок 1: Статистика парсингу (Широкий віджет) -->
+        <div class="bento-card col-span-2 p-4 rounded-2xl flex justify-between items-center">
+            <div>
+                <p class="text-xs text-slate-400 uppercase tracking-wider">Опрацьовано каналів</p>
+                <p class="text-2xl font-extrabold text-indigo-400 mt-1">12 джерел</p>
+            </div>
+            <div class="text-right">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Активні
+                </span>
+            </div>
+        </div>
+
+        <!-- Блок 2: Кнопка сканування за фото -->
+        <div class="bento-card p-4 rounded-2xl flex flex-col justify-between h-32 cursor-pointer">
+            <div class="text-2xl">📸</div>
+            <div>
+                <h3 class="font-semibold text-sm">Пошук по фото</h3>
+                <p class="text-xxs text-slate-400 mt-0.5">Знайти копію товару</p>
+            </div>
+        </div>
+
+        <!-- Блок 3: База товарів -->
+        <div class="bento-card p-4 rounded-2xl flex flex-col justify-between h-32 cursor-pointer">
+            <div class="text-2xl">📦</div>
+            <div>
+                <h3 class="font-semibold text-sm">Мій каталог</h3>
+                <p class="text-xxs text-slate-400 mt-0.5">3,420 позицій</p>
+            </div>
+        </div>
+
+        <!-- Блок 4: Стрічка останніх знайдених товарів (Широкий) -->
+        <div class="bento-card col-span-2 p-4 rounded-2xl">
+            <h3 class="font-semibold text-sm mb-3 text-slate-300">Останні імпортовані товари</h3>
+            
+            <!-- Товар 1 -->
+            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-lg">🖼️</div>
+                    <div>
+                        <p class="text-xs font-medium">Керамічний декор "Modern"</p>
+                        <p class="text-xxs text-slate-400">Постачальник: Opt_Keramica</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-indigo-300">420 ₴</p>
+                    <p class="text-xxs text-slate-500">Дроп ціна</p>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-lg">🖼️</div>
+                    <div>
+                        <p class="text-xs font-medium">Ваза мінімалізм (біла)</p>
+                        <p class="text-xxs text-slate-400">Постачальник: Decor_UA</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-indigo-300">290 ₴</p>
+                    <p class="text-xxs text-slate-500">Дроп ціна</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Підключаємо Telegram WebApp скрипт -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        // Ініціалізація вікна Telegram
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Розгорнути на весь екран
+    </script>
+</body>
+</html>
