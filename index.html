@@ -28,11 +28,9 @@
             transform: scale(0.98);
             background: rgba(255, 255, 255, 0.06);
         }
-        /* Клас для приховування екранів */
         .app-screen {
             display: none;
         }
-        /* Клас для активного екрана */
         .app-screen.active {
             display: block;
         }
@@ -80,7 +78,7 @@
             <div class="bento-card col-span-2 p-4 rounded-2xl">
                 <h3 class="font-semibold text-sm mb-3 text-slate-300">Останні імпортовані товари</h3>
                 
-                <div class="product-item flex items-center justify-between py-2 border-b border-white/5 last:border-0 cursor-pointer" data-name="Керамічний декор 'Modern'" data-price="420 ₴" data-provider="Opt_Keramica">
+                <div class="product-item flex items-center justify-between py-2 border-b border-white/5 last:border-0 cursor-pointer" data-id="p1" data-name="Керамічний декор 'Modern'" data-price="420 ₴" data-provider="Opt_Keramica">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-lg">🖼️</div>
                         <div>
@@ -94,7 +92,7 @@
                     </div>
                 </div>
 
-                <div class="product-item flex items-center justify-between py-2 border-b border-white/5 last:border-0 cursor-pointer" data-name="Ваза мінімалізм (біла)" data-price="290 ₴" data-provider="Decor_UA">
+                <div class="product-item flex items-center justify-between py-2 border-b border-white/5 last:border-0 cursor-pointer" data-id="p2" data-name="Ваза мінімалізм (біла)" data-price="290 ₴" data-provider="Decor_UA">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-lg">🖼️</div>
                         <div>
@@ -111,132 +109,97 @@
         </div>
     </div>
 
-
     <div id="screen-scan" class="app-screen">
         <h2 class="text-xl font-bold mb-2 flex items-center gap-2 text-indigo-400">
             <span>📸</span> Смарт-пошук по фото
         </h2>
-        <p class="text-xs text-slate-400 mb-6">Завантажте фотографію виробу, і штучний інтелект знайде його картку у базах постачальників.</p>
-        
+        <p class="text-xs text-slate-400 mb-6">Завантажте фотографію виробу для ШІ-аналізу.</p>
         <div class="bento-card rounded-2xl p-8 text-center border-dashed border-2 border-white/20 cursor-pointer flex flex-col items-center justify-center gap-3">
             <div class="text-4xl text-slate-500">📥</div>
             <p class="text-sm font-medium">Натисніть для вибору фото</p>
-            <p class="text-xxs text-slate-500">Підтримуються формати JPG, PNG</p>
         </div>
     </div>
-
 
     <div id="screen-catalog" class="app-screen">
         <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-purple-400">
             <span>📦</span> Мій каталог товарів
         </h2>
-        
-        <input type="text" placeholder="Пошук за назвою або артикулом..." class="w-full bento-card rounded-xl px-4 py-2.5 text-sm mb-4 outline-none focus:border-purple-500">
-
+        <input type="text" placeholder="Пошук..." class="w-full bento-card rounded-xl px-4 py-2.5 text-sm mb-4 outline-none">
         <div class="grid grid-cols-1 gap-3">
-            <div class="bento-card p-3 rounded-xl flex justify-between items-center">
+            <div class="bento-card p-3 rounded-xl flex justify-between items-center product-item cursor-pointer" data-id="p3" data-name="Глиняний глечик 'Етно'" data-price="550 ₴" data-provider="Хмельницький Склад">
                 <div class="flex items-center gap-3">
                     <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-xl">🏺</div>
                     <div>
                         <h4 class="text-sm font-semibold">Глиняний глечик "Етно"</h4>
-                        <p class="text-xxs text-slate-400">Склад: Хмельницький (14 шт.)</p>
+                        <p class="text-xxs text-slate-400">Склад: Хмельницький</p>
                     </div>
                 </div>
                 <span class="text-sm font-bold text-purple-300">550 ₴</span>
             </div>
-
-            <div class="bento-card p-3 rounded-xl flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-xl">🍽️</div>
-                    <div>
-                        <h4 class="text-sm font-semibold">Набір тарілок "StoneWare"</h4>
-                        <p class="text-xxs text-slate-400">Склад: Київ (40 шт.)</p>
-                    </div>
-                </div>
-                <span class="text-sm font-bold text-purple-300">1,200 ₴</span>
-            </div>
         </div>
     </div>
-
 
     <div id="screen-stats" class="app-screen">
         <h2 class="text-xl font-bold mb-2 flex items-center gap-2 text-emerald-400">
             <span>📊</span> Підключені джерела
         </h2>
-        <p class="text-xs text-slate-400 mb-4">Список каналів та чатів постачальників, які бот автоматично парсить.</p>
-
-        <div class="space-y-3">
-            <div class="bento-card p-3 rounded-xl flex justify-between items-center">
-                <div>
-                    <h4 class="text-sm font-medium">@Opt_Keramica_UA</h4>
-                    <p class="text-xxs text-slate-500">Останнє оновлення: 5 хв тому</p>
-                </div>
-                <span class="text-xxs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-md">1,840 товарів</span>
+        <div class="bento-card p-3 rounded-xl flex justify-between items-center">
+            <div>
+                <h4 class="text-sm font-medium">@Opt_Keramica_UA</h4>
+                <p class="text-xxs text-slate-500">Активно</p>
             </div>
-            <div class="bento-card p-3 rounded-xl flex justify-between items-center">
-                <div>
-                    <h4 class="text-sm font-medium">@Decor_Opt_Zavod</h4>
-                    <p class="text-xxs text-slate-500">Останнє оновлення: 14 хв тому</p>
-                </div>
-                <span class="text-xxs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-md">1,580 товарів</span>
-            </div>
+            <span class="text-xxs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-md">1,840 товарів</span>
         </div>
     </div>
-
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
 
-        // Сховище історії навігації (щоб знати, куди повертатися)
-        let screenHistory = [];
-
-        // Функція для зміни екрана
         function navigateTo(screenId) {
             tg.HapticFeedback.impactOccurred('light');
-
-            // Ховаємо поточний активний екран
             document.querySelector('.app-screen.active').classList.remove('active');
-            
-            // Відкриваємо новий екран
             document.getElementById(screenId).classList.add('active');
-
-            // Якщо йдемо на головний — ховаємо нативну кнопку Назад у Telegram
             if (screenId === 'screen-main') {
                 tg.BackButton.hide();
-                screenHistory = [];
             } else {
-                // Інакше — додаємо в історію і показуємо кнопку Назад
-                screenHistory.push(screenId);
                 tg.BackButton.show();
             }
         }
 
-        // Обробка натискання нативної кнопки "Назад" у Telegram вгорі екрана
-        tg.BackButton.onClick(() => {
-            navigateTo('screen-main');
-        });
+        tg.BackButton.onClick(() => navigateTo('screen-main'));
 
-        // ПРИВ'ЯЗУЄМО КЛІКИ ДО БЕНТО-БЛОКІВ НА ГОЛОВНІЙ
         document.getElementById('btn-scan').addEventListener('click', () => navigateTo('screen-scan'));
         document.getElementById('btn-catalog').addEventListener('click', () => navigateTo('screen-catalog'));
         document.getElementById('btn-stats').addEventListener('click', () => navigateTo('screen-stats'));
 
-        // Кліки по товарах з головної сторінки (викликають інформаційне вікно)
+        // ЛОГІКА НАДСИЛАННЯ ДАНИХ ПРИ ЕКСПОРТІ
         document.querySelectorAll('.product-item').forEach(item => {
             item.addEventListener('click', () => {
+                const id = item.getAttribute('data-id');
                 const name = item.getAttribute('data-name');
                 const price = item.getAttribute('data-price');
                 const provider = item.getAttribute('data-provider');
                 
                 tg.showPopup({
                     title: name,
-                    message: `Ціна для дропшиперів: ${price}\nПостачальник: ${provider}\n\nБажаєте імпортувати картку товару у свій бізнес-канал?`,
+                    message: `Ціна: ${price}\nПостачальник: ${provider}\n\nБажаєте імпортувати картку товару в чат бота?`,
                     buttons: [
-                        {id: 'imp', type: 'default', text: '🚀 Імпортувати позицію'},
+                        {id: 'export', type: 'default', text: '🚀 Імпортувати позицію'},
                         {type: 'cancel', text: 'Скасувати'}
                     ]
+                }, (buttonId) => {
+                    // Якщо користувач натиснув кнопку імпорту
+                    if (buttonId === 'export') {
+                        tg.HapticFeedback.notificationOccurred('success');
+                        
+                        // Збираємо дані в один текстовий рядок, щоб передати боту
+                        const dataToSend = `export_prod:${id}:${name}:${price}:${provider}`;
+                        
+                        // Надсилаємо дані боту і автоматично закриваємо апку
+                        tg.sendData(dataToSend);
+                    }
                 });
             });
         });
